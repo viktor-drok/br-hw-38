@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <fieldset>
+      <legend>Search By Title</legend>
+      <form action="#" class="form">
+        <div class="title">
+          <label for="movieTitle" class="title__lable">Title:</label>
+          <input id="movieTitle" type="text" class="title__input" />
+        </div>
+
+        <div class="year">
+          <label for="yearRelease" class="year__lable">Year:</label>
+          <input id="yearRelease" type="text" class="year__title" />
+        </div>
+
+        <div class="type">
+          <div class="type__title">Type of movie:</div>
+          <select name="type of movie" id="" class="type__select">
+            <option value="series">series</option>
+            <option selected value="movie">movie</option>
+            <option value="episode">episode</option>
+          </select>
+        </div>
+        <button type="submit" class="form__button">SEARCH</button>
+      </form>
+    </fieldset>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
