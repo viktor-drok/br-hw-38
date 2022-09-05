@@ -13,6 +13,6 @@
 
 Посилання на API OMDB: http://www.omdbapi.com/ (необхідно зареєструватися для отримання API KEY).
 
-Посилання на альтернативний API з фільмами (якщо OMDB не працюватиме): $(https://developers.themoviedb.org/3/ search/search-movies).
+Посилання на альтернативний API з фільмами (якщо OMDB не працюватиме): $(https://developers.themoviedb.org/3/search/search-movies).
 
 Якщо цей API також не працює, варто пошукати інший доступний ресурс самостійно й адаптувати завдання під нього.
