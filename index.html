@@ -9,30 +9,32 @@
     <title>Document</title>
   </head>
   <body>
-    <fieldset>
-      <legend>Search By Title</legend>
-      <form action="#" class="form">
-        <div class="title">
-          <label for="movieTitle" class="title__lable">Title:</label>
-          <input id="movieTitle" type="text" class="title__input" />
-        </div>
+    <div class="wrapper">
+      <fieldset class="fieldset">
+        <legend class="fieldset__legend">Search By Title</legend>
+        <form action="#" class="form">
+          <div class="title">
+            <label for="movieTitle" class="title__lable">Title:</label>
+            <input id="movieTitle" type="text" class="title__input" />
+          </div>
 
-        <div class="year">
-          <label for="yearRelease" class="year__lable">Year:</label>
-          <input id="yearRelease" type="text" class="year__title" />
-        </div>
+          <div class="year">
+            <label for="yearRelease" class="year__lable">Year:</label>
+            <input id="yearRelease" type="text" class="year__input" />
+          </div>
 
-        <div class="type">
-          <div class="type__title">Type of movie:</div>
-          <select name="type of movie" id="" class="type__select">
-            <option value="series">series</option>
-            <option selected value="movie">movie</option>
-            <option value="episode">episode</option>
-          </select>
-        </div>
-        <button type="submit" class="form__button">SEARCH</button>
-      </form>
-    </fieldset>
+          <div class="type">
+            <div class="type__title">Type of movie:</div>
+            <select name="type of movie" id="" class="type__select">
+              <option value="series">series</option>
+              <option selected value="movie">movie</option>
+              <option value="episode">episode</option>
+            </select>
+          </div>
+          <button type="submit" class="form__button">SEARCH</button>
+        </form>
+      </fieldset>
+    </div>
 
     <script src="./scripts/script.js"></script>
   </body>
