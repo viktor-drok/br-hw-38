@@ -17,7 +17,7 @@ function sendRequest(method, url) {
 function submitRequest() {
     let t = `${movieNameInput.value}`;
     let y = `${movieYearRelease.value}`;
-    const requestMovie = `http://www.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}&y=${y}`;
+    const requestMovie = `https://www.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}&y=${y}`;
     // const poster = `http://img.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}`;
     sendRequest('GET', requestMovie).then(data => {
         outputTitle.innerText = JSON.stringify(Object.values(data)[0]);
