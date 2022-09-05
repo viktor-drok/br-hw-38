@@ -14,12 +14,17 @@ function sendRequest(method, url) {
 }
 
 
-function submitRequest() {
+function submitRequest(e) {
+    e.preventDefault();
+
     let t = `${movieNameInput.value}`;
     let y = `${movieYearRelease.value}`;
     const requestMovie = `https://www.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}&y=${y}`;
     // const poster = `http://img.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}`;
+
     sendRequest('GET', requestMovie).then(data => {
+        // fetch(requestMovie).then(resp =>
+        //     resp.json()).then(data => {
         outputTitle.innerText = JSON.stringify(data['Title']);
         outputImg.src = data['Poster'];
 
