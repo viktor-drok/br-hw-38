@@ -20,12 +20,12 @@ function submitRequest() {
     const requestMovie = `https://www.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}&y=${y}`;
     // const poster = `http://img.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}`;
     sendRequest('GET', requestMovie).then(data => {
-        outputTitle.innerText = JSON.stringify(Object.values(data)[0]);
-        poster = Object.values(data)[13];
-        outputImg.src = poster;
+        outputTitle.innerText = JSON.stringify(data['Title']);
+        outputImg.src = data['Poster'];
+
         responseObject.push(data);
 
-        console.log(Object.values(data)[13]);
+        console.log(data);
     });
     // sendRequest('GET', poster).then(data => output.innerText = JSON.stringify(data));
 }
