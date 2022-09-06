@@ -1,11 +1,28 @@
 const movieNameInput = document.getElementById('movieTitle');
 const movieYearRelease = document.getElementById('yearRelease');
 const submitButton = document.querySelector('.form__button');
-const outputTitle = document.querySelector('.output__title');
+const clearButton = document.querySelector('.form__button-clear');
 const outputImg = document.querySelector('.output__img img');
+const wrapper = document.querySelector('.wrapper');
 // const method = 'GET';
 
-const responseObject = [];
+function createResultOfSearch(title, sourse) {
+    let divTitle = document.createElement("div");
+    divTitle.setAttribute('class', 'output__title');
+    divTitle.innerText += `${title}`;
+
+    wrapper.append(divTitle);
+    let divImg = document.createElement("img");
+
+    if (sourse == "N/A") {
+        divImg.setAttribute('src', `image/settings-gmap-api-error-2.gif`);
+    } else {
+        divImg.setAttribute('src', `${sourse}`);
+
+    }
+
+    wrapper.append(divImg);
+}
 
 function sendRequest(method, url) {
     return fetch(url).then(response => {
@@ -13,26 +30,26 @@ function sendRequest(method, url) {
     });
 }
 
-
 function submitRequest(e) {
     e.preventDefault();
 
-    let t = `${movieNameInput.value}`;
+    let s = `${movieNameInput.value}`;
     let y = `${movieYearRelease.value}`;
-    const requestMovie = `https://www.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}&y=${y}`;
-    // const poster = `http://img.omdbapi.com/?i=tt3896198&apikey=93d0c8d2&t=${t}`;
+    const requestMovie = `https://www.omdbapi.com/?apikey=93d0c8d2&i=tt3896198&s=${s}&y=${y}`;
 
     sendRequest('GET', requestMovie).then(data => {
-        // fetch(requestMovie).then(resp =>
-        //     resp.json()).then(data => {
-        outputTitle.innerText = JSON.stringify(data['Title']);
-        outputImg.src = data['Poster'];
 
-        responseObject.push(data);
-
-        console.log(data);
-    });
-    // sendRequest('GET', poster).then(data => output.innerText = JSON.stringify(data));
+        JSON.stringify(data.Search.forEach(e => {
+            createResultOfSearch(e.Title, e.Poster);
+        }));
+    }
+    );
 }
 
 submitButton.addEventListener('click', submitRequest);
+
+clearButton.addEventListener('click', function () {
+    location.reload();
+});
+
+

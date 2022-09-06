@@ -20,7 +20,7 @@ body {
   margin-bottom: 20px;
 }
 
-.form__button {
+.form__button, .form__button-clear {
   width: 100%;
   margin-top: 15px;
   border-radius: 5px;
@@ -83,6 +83,7 @@ body {
 }
 
 .output__title {
+  margin-top: 20px;
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
