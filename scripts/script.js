@@ -15,7 +15,7 @@ function createResultOfSearch(title, sourse) {
     let divImg = document.createElement("img");
 
     if (sourse == "N/A") {
-        divImg.setAttribute('src', `image/settings-gmap-api-error-2.gif`);
+        divImg.setAttribute('src', `./image/http-error-404-not-found.png`);
     } else {
         divImg.setAttribute('src', `${sourse}`);
 
