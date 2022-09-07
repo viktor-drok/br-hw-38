@@ -4,24 +4,28 @@ const submitButton = document.querySelector('.form__button');
 const clearButton = document.querySelector('.form__button-clear');
 const outputImg = document.querySelector('.output__img img');
 const wrapper = document.querySelector('.wrapper');
+const resultList = document.querySelector('.result-list');
 // const method = 'GET';
 
 function createResultOfSearch(title, sourse) {
+    let resultItem = document.createElement('li');
+    resultItem.classList.add('result-item');
+    resultList.append(resultItem);
+
     let divTitle = document.createElement("div");
     divTitle.setAttribute('class', 'output__title');
     divTitle.innerText += `${title}`;
 
-    wrapper.append(divTitle);
+    resultItem.append(divTitle);
     let divImg = document.createElement("img");
 
     if (sourse == "N/A") {
         divImg.setAttribute('src', `./image/http-error-404-not-found.png`);
     } else {
         divImg.setAttribute('src', `${sourse}`);
-
     }
 
-    wrapper.append(divImg);
+    resultItem.append(divImg);
 }
 
 function sendRequest(method, url) {
@@ -51,5 +55,6 @@ submitButton.addEventListener('click', submitRequest);
 clearButton.addEventListener('click', function () {
     location.reload();
 });
+
 
 
