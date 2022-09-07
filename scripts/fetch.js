@@ -5,6 +5,8 @@ const clearButton = document.querySelector('.form__button-clear');
 const outputImg = document.querySelector('.output__img img');
 const wrapper = document.querySelector('.wrapper');
 const resultList = document.querySelector('.result-list');
+const options = document.querySelectorAll('.type__select option');
+
 // const method = 'GET';
 
 function createResultOfSearch(title, sourse) {
@@ -37,11 +39,25 @@ function sendRequest(method, url) {
 function submitRequest(e) {
     e.preventDefault();
 
+    resultList.innerText = '';
+
     let s = `${movieNameInput.value}`;
     let y = `${movieYearRelease.value}`;
-    const requestMovie = `https://www.omdbapi.com/?apikey=93d0c8d2&i=tt3896198&s=${s}&y=${y}`;
+    let type = ``;
+
+    options.forEach(getOptionValue);
+
+    function getOptionValue(element) {
+        if (element.selected) {
+            return type = `${element.value}`;
+        };
+    }
+
+    const requestMovie = `https://www.omdbapi.com/?apikey=93d0c8d2&i=tt3896198&s=${s}&y=${y}&type=${type}`;
 
     sendRequest('GET', requestMovie).then(data => {
+
+        console.log(data.Search);
 
         JSON.stringify(data.Search.forEach(e => {
             createResultOfSearch(e.Title, e.Poster);
@@ -52,9 +68,6 @@ function submitRequest(e) {
 
 submitButton.addEventListener('click', submitRequest);
 
-clearButton.addEventListener('click', function () {
-    location.reload();
-});
 
 
 

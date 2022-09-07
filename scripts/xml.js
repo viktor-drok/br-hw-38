@@ -5,12 +5,10 @@ const clearButton = document.querySelector('.form__button-clear');
 const outputImg = document.querySelector('.output__img img');
 const wrapper = document.querySelector('.wrapper');
 const resultList = document.querySelector('.result-list');
-
-
+const options = document.querySelectorAll('.type__select option');
+// const;
 
 const xhr = new XMLHttpRequest();
-
-
 
 function submitRequest(event) {
     event.preventDefault();
@@ -19,7 +17,17 @@ function submitRequest(event) {
 
     let s = `${movieNameInput.value}`;
     let y = `${movieYearRelease.value}`;
-    const url = `https://www.omdbapi.com/?apikey=93d0c8d2&s=${s}&y=${y}`;
+    let type = ``;
+
+    options.forEach(getOptionValue);
+
+    function getOptionValue(element) {
+        if (element.selected) {
+            return type = `${element.value}`;
+        };
+    }
+
+    const url = `https://www.omdbapi.com/?apikey=93d0c8d2&s=${s}&y=${y}&type=${type}`;
 
     xhr.open("GET", url);
     xhr.send();
