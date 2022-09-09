@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <fieldset class="fieldset">
+        <legend class="fieldset__legend">Search By Title</legend>
+        <form class="form">
+          <div class="title">
+            <label for="movieTitle" class="title__lable">Title:</label>
+            <input id="movieTitle" type="text" class="title__input" />
+          </div>
+
+          <div class="year">
+            <label for="yearRelease" class="year__lable">Year:</label>
+            <input id="yearRelease" type="text" class="year__input" />
+          </div>
+
+          <div class="type">
+            <div class="type__title">Type of movie:</div>
+            <select name="type of movie" id="" class="type__select">
+              <option value="series">series</option>
+              <option selected value="movie">movie</option>
+            </select>
+          </div>
+          <button type="submit" class="form__button">SEARCH</button>
+          <!-- <button type="submit" class="form__button-clear">CLEAR</button> -->
+        </form>
+      </fieldset>
+      <div class="weather">
+        <div id="openweathermap-widget-15"></div>
+        <div class="temperature"></div>
+        <div class="city"></div>
+      </div>
+
+      <ul class="result-list"></ul>
+    </div>
+
+    <script src="./scripts/xml.js"></script>
+    <!-- <script src="./scripts/fetch.js"></script> -->
+  </body>
+</html>
